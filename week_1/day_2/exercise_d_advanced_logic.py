@@ -1,6 +1,8 @@
 # For the following list of numbers:
 
 numbers = [1, 6, 2, 2, 7, 1, 6, 13, 99, 7]
+# Modified list with 13 at end
+# numbers = [1, 6, 2, 2, 7, 1, 6, 13, 99, 7, 13]
 
 # 1. Print out a list of the even integers:
 print([num for num in numbers if num % 2 == 0])
@@ -26,13 +28,13 @@ for num in numbers:
 # 3. Print True if the list contains a 2 next to a 2 somewhere.
 for index, num in enumerate(numbers):
     if index == 0: continue
-    elif numbers[index] == numbers[index - 1]:
+    elif numbers[index] == numbers[index - 1] and num == 2:
         print(True)
 
 # 3. Without enumerate
 prev_num = None
 for num in numbers:
-    if prev_num == num:
+    if prev_num == num and num == 2:
         #print(True)
         break
     prev_num = num
@@ -49,7 +51,7 @@ for num in numbers:
     elif num == 7: skip_num = False
     elif skip_num == True: continue
     else: q4_sum += num
-        
+
 print(q4_sum)
 
 # 5. HARD! Print the sum of the numbers. 
@@ -58,6 +60,8 @@ print(q4_sum)
 #    HINT - You will need to track the index throughout the loop.
 #
 #    So [5, 13, 2] would have sum of 5. 
+
+# My solution - to deal with potential 13 at end of list
 q5_sum = 0
 indices_of_13 = []
 for index, num in enumerate(numbers):
@@ -74,7 +78,14 @@ print(q5_sum)
 # Without enumerate I would just create a counter variable and
 # add one each loop to serve as the index.
 
+# More straightforward but doesn't deal with 13 at end of list
+q5_sum = 0
+for index, num in enumerate(numbers):
+    if num != 13 and numbers[index - 1] != 13:
+        q5_sum += num
 
+print(q5_sum)
 
-
+# List comprehension - doesn't deal with 13 at end of list
+print(sum([num for index, num in enumerate(numbers) if num != 13 and numbers[index - 1] != 13]))
 

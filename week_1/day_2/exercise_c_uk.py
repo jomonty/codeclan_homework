@@ -22,7 +22,7 @@ for country in united_kingdom:
     country['capital'] = 'Cardiff'
 
 # 1. Without loop
-united_kingdom[1]['name'] = 'Wales'
+united_kingdom[1]['capital'] = 'Cardiff'
 
 # 2. Create a dictionary for Northern Ireland and add it to the `united_kingdom` list (The capital is Belfast, and the population is 1,811,000).
 united_kingdom.append(

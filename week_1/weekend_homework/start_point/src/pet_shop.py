@@ -65,6 +65,7 @@ def add_pet_to_customer(customer: dict, new_pet: dict) -> None:
     return None
 
 def customer_can_afford_pet(customer: dict, new_pet: dict) -> bool:
+    # return True if customer['cash'] >= new_pet['price'] else False
     if customer['cash'] >= new_pet['price']:
         return True
     else: return False

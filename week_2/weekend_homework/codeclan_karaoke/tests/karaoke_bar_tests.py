@@ -18,40 +18,98 @@ class TestKaraokeBar(unittest.TestCase):
         self.test_rooms = [self.test_room_1, self.test_room_2]
         self.test_karaoke_bar_1 = KaraokeBar('Spectre', self.test_rooms, 100)
         
-    @unittest.skip('skipped')
+    # @unittest.skip('skipped')
     def test_is_karaoke_bar(self):
         self.assertEqual(self.test_karaoke_bar_1.name, 'Spectre')
         self.assertEqual(len(self.test_karaoke_bar_1.rooms), 2)
         self.assertEqual(self.test_karaoke_bar_1.rooms[0].name, 'Skyfall')
+        self.assertEqual(self.test_karaoke_bar_1.room_charge, 5)
         
-    @unittest.skip('skipped')
+    # @unittest.skip('skipped')
     def test_check_float(self):
         self.assertEqual(100, self.test_karaoke_bar_1.float)
         
-    @unittest.skip('skipped')
-    def test_find_room_by_name(self):
+    # @unittest.skip('skipped')
+    def test_find_room_by_name_pass(self):
         expected_output = self.test_room_1
         actual_output = self.test_karaoke_bar_1.find_room_by_name('Skyfall')
         self.assertEqual(expected_output, actual_output)
         
-    @unittest.skip('skipped')
+    # @unittest.skip('skipped')
+    def test_find_room_by_name_fail(self):
+        expected_output = None
+        actual_output = self.test_karaoke_bar_1.find_room_by_name('Boogaloo')
+        self.assertEqual(expected_output, actual_output)
+        
+    # @unittest.skip('skipped')
+    def test_add_to_float(self):
+        expected_output = 105
+        self.test_karaoke_bar_1.add_to_float(self.test_karaoke_bar_1.room_charge)
+        actual_output = self.test_karaoke_bar_1.float
+        self.assertEqual(expected_output, actual_output)
+        
+    # @unittest.skip('skipped')
     def test_add_guest_to_room_pass_float(self):
         expected_output = 105
         self.test_karaoke_bar_1.add_guest_to_room(self.test_guest_1, self.test_room_1)
         actual_output = self.test_karaoke_bar_1.float
         self.assertEqual(expected_output, actual_output)
         
-    @unittest.skip('skipped')
+    # @unittest.skip('skipped')
+    def test_add_guest_to_room_pass_guest_wallet(self):
+        expected_output = 20
+        self.test_karaoke_bar_1.add_guest_to_room(self.test_guest_1, self.test_room_1)
+        actual_output = self.test_guest_1.wallet
+        self.assertEqual(expected_output, actual_output)
+        
+    # @unittest.skip('skipped')
+    def test_add_guest_to_rooom_pass_room_guests(self):
+        expected_output = 1
+        self.test_karaoke_bar_1.add_guest_to_room(self.test_guest_1, self.test_room_1)
+        actual_output = len(self.test_room_1.guests)
+        self.assertEqual(expected_output, actual_output)
+        
+    # @unittest.skip('skipped')
     def test_add_guest_to_room_fail_cannot_afford_float(self):
         expected_output = 100
         self.test_karaoke_bar_1.add_guest_to_room(self.test_guest_3, self.test_room_1)
         actual_output = self.test_karaoke_bar_1.float
         self.assertEqual(expected_output, actual_output)
         
-    @unittest.skip('skipped')
+    # @unittest.skip('skipped')
     def test_add_guest_to_room_fail_room_full_float(self):
         expected_output = 100
         self.test_room_2.guests = [self.test_guest_1, self.test_guest_2]
         self.test_karaoke_bar_1.add_guest_to_room(self.test_guest_3, self.test_room_2)
         actual_output = self.test_karaoke_bar_1.float
+        self.assertEqual(expected_output, actual_output)
+        
+    # @unittest.skip('skipped')
+    def test_remove_guest_from_room_pass(self):
+        expected_output = False
+        test_room = self.test_karaoke_bar_1.find_room_by_name('Skyfall')
+        test_room.guests = [self.test_guest_1, self.test_guest_2]
+        self.test_karaoke_bar_1.remove_guest_from_room(self.test_guest_2, test_room)
+        actual_output = test_room.is_guest_in_room(self.test_guest_2)
+        self.assertEqual(expected_output, actual_output)
+        
+    # @unittest.skip('skipped')
+    def test_remove_guest_from_room_fail(self):
+        expected_output = True
+        test_room = self.test_karaoke_bar_1.find_room_by_name('Skyfall')
+        test_room.guests = [self.test_guest_1]
+        self.test_karaoke_bar_1.remove_guest_from_room(self.test_guest_2, test_room)
+        actual_output = test_room.is_guest_in_room(self.test_guest_1)
+        self.assertEqual(expected_output, actual_output)
+        
+    # @unittest.skip('skipped')
+    def test_add_guest_to_room_favourite_song(self):
+        expected_output = 'Whoo!'
+        actual_output = self.test_karaoke_bar_1.add_guest_to_room(self.test_guest_1, self.test_room_1)
+        self.assertEqual(expected_output, actual_output)
+        
+    # @unittest.skip('skipped')
+    def test_add_guest_to_room_not_favourite_song(self):
+        expected_output = None
+        actual_output = self.test_karaoke_bar_1.add_guest_to_room(self.test_guest_2, self.test_room_1)
         self.assertEqual(expected_output, actual_output)

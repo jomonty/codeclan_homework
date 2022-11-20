@@ -7,7 +7,7 @@ from classes.song import Song
 class TestKaraokeBar(unittest.TestCase):
     def setUp(self):
         self.test_guest_1 = Guest('Le Chiffre', 25, 'You know my name')
-        self.test_guest_2 = Guest('Elektra Kind', 15, 'The world is not enough')
+        self.test_guest_2 = Guest('Elektra King', 15, 'The world is not enough')
         self.test_guest_3 = Guest('Franz Oberhauser', 3, 'Writing''s on the wall')
         self.test_song_1 = Song('You know my name')
         self.test_song_2 = Song('Writing''s on the wall')

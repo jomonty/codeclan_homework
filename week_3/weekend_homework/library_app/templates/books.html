@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body_main_content %}
+    <section class="books header">
+
+    </section>
+    <section class="books container">
+        {% for book in library %}
+            <section class="books single-card">
+                <p>Book Title: {{ book.title }}</p>
+            </section>
+        {% endfor %}
+    </section>
+{% endblock %}

@@ -1,3 +1,105 @@
 body {
-    background-color: lightblue;
+    background-color: #A5C1CC;
+    display: grid;
+    grid-template-areas:
+        'body_header'
+        'body_main'
+        'body_footer';
+    grid-template-rows: 150px 1fr 200px;
+    margin: 0;
+
+}
+body > header {
+    background-color: #A5C1CC;
+    grid-area: 'body_header';
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+body > main {
+    background-color: #E7FFF9;
+    grid-area: 'body_main';
+}
+body > footer {
+    background-color: #A5C1CC;
+    grid-area: 'body_footer';
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    margin: 0;
+}
+
+.header-nav {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    column-gap: 20px;
+}
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    row-gap: 1.5rem;
+}
+.add-remove-container {
+    display: grid;
+    grid-template-rows: 60px 1fr;
+    align-items: center;
+}
+.add-remove-header {
+    text-align: center;
+}
+.add-remove-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 80px;
+}
+.form-add-book {
+    /* border: 1px solid green; */
+    display: grid;
+    grid-template-areas:
+        "left-upper right-upper"
+        "bottom bottom";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 3fr 3rem;
+    border: 1px solid black;
+}
+.form-add-book-1 {
+    grid-area: left-upper;
+    text-align: center;
+    border: 0;
+}
+.form-add-book-2 {
+    grid-area: right-upper;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    justify-items: center;
+    border: 0;
+}
+.form-add-book-3 {
+    grid-area: bottom;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+.form-remove-book {
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+input[type=submit] {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    border-radius: 5px; 
 }

@@ -6,29 +6,39 @@
             <h2>Add or remove book from library</h2>
         </header>
         <main class="books add-remove-main">
-            <div style="border: 1px solid green;">
-                <form action="books/add" method="post">
-                    <label for="book_title">Title</label>
-                    <input type="text" id="book_title" name="book_title">
-
-                    <label for="book_author">Author</label>
-                    <input type="text" id="book_author" name="book_author">
-
-                    <label for="book_genre">Genre</label>
-                    <input type="text" id="book_genre" name="book_genre">
-
-                    <fieldset>
-                        <input type="radio" id="book_checked_in" name="book_status" value="book_checked_in" checked>
-                        <label for="book_checked_in">Checked In</label>
-
-                        <input type="radio" id="book_checked_out" name="book_status" value="book_checked_out">
-                        <label for="book_checked_out">Checked Out</label>
+            <div>
+                <form action="books/add" method="post" class="books form-add-book">
+                    <!-- <div class="books form-add-book-1"> -->
+                    <fieldset class="books form-add-book-1">
+                        <label for="book_title">Title
+                        <input type="text" id="book_title" name="book_title">
+                        <br>
+                        <label for="book_author">Author</label>
+                        <input type="text" id="book_author" name="book_author">
+                        <br>
+                        <label for="book_genre">Genre</label>
+                        <input type="text" id="book_genre" name="book_genre">
                     </fieldset>
-                    <input type="submit" value="Add">
+                    <!-- </div> -->
+                    <!-- <div class="books form-add-book-2"> -->
+                    <fieldset class="books form-add-book-2">
+                        <label for="book_checked_in">
+                            <input type="radio" id="book_checked_in" name="book_status" value="book_checked_in" checked>
+                            Checked In
+                        </label>
+                        <label for="book_checked_out">
+                            <input type="radio" id="book_checked_out" name="book_status" value="book_checked_out">
+                            Checked Out
+                        </label>
+                    </fieldset>
+                    <!-- </div> -->
+                    <div class="books form-add-book-3">
+                        <input type="submit" value="Add">
+                    </div>
                 </form>
             </div>
-            <div style="border: 1px solid green;">
-                <form action="books/remove" method="post">
+            <div>
+                <form action="books/remove" method="post" class="books form-remove-book">
                     <label for="book_title">Book Title: </label>
                     <input type="text" name="book_title" id="book_title">
                     <input type="submit" value="Remove">

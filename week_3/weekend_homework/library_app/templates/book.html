@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body_main_content %}
+    <section class="single-book container">
+        <header class="single-book header">
+
+        </header>
+        <main class="single-book book-card">
+            <p>
+                <strong>Title: </strong>
+                {{ book.title }}
+            </p>
+            <p>
+                <strong>Author: </strong>
+                {{ book.author }}
+            </p>
+            <p>
+                <strong>Genre: </strong>
+                {{ book.genre }}
+            </p>
+            <p>
+                <strong>Checked Out? </strong>
+                {% if book.checked_out %}
+                    True
+                {% else %}
+                    False
+                {% endif %}
+            </p>
+            <form method="post">
+                {% if book.checked_out %}
+                    <input type="submit" name="single_check_in" value="Check In">
+                {% else %}
+                    <input type="submit" name="single_check_out" value="Check Out">
+                {% endif %}
+            </form>
+        </main>
+    </section>
+
+{% endblock %}

@@ -1,14 +1,80 @@
 {% extends 'base.html' %}
 
 {% block body_main_content %}
-    <section class="books header">
+    <section class="books add-remove-container" style="border: 1px solid black">
+        <header class="books add-remove-header">
+            <h2>Add or remove book from library</h2>
+        </header>
+        <main class="books add-remove-main">
+            <div style="border: 1px solid green;">
+                <form action="books/add" method="post">
+                    <label for="book_title">Title</label>
+                    <input type="text" id="book_title" name="book_title">
 
+                    <label for="book_author">Author</label>
+                    <input type="text" id="book_author" name="book_author">
+
+                    <label for="book_genre">Genre</label>
+                    <input type="text" id="book_genre" name="book_genre">
+
+                    <fieldset>
+                        <input type="radio" id="book_checked_in" name="book_status" value="book_checked_in" checked>
+                        <label for="book_checked_in">Checked In</label>
+
+                        <input type="radio" id="book_checked_out" name="book_status" value="book_checked_out">
+                        <label for="book_checked_out">Checked Out</label>
+                    </fieldset>
+                    <input type="submit" value="Add">
+                </form>
+            </div>
+            <div style="border: 1px solid green;">
+                <form action="books/remove" method="post">
+                    <label for="book_title">Book Title: </label>
+                    <input type="text" name="book_title" id="book_title">
+                    <input type="submit" value="Remove">
+                </form>
+            </div>
+        </main>
     </section>
-    <section class="books container">
-        {% for book in library %}
-            <section class="books single-card">
-                <p>Book Title: {{ book.title }}</p>
-            </section>
-        {% endfor %}
+    <section class="books library-container">
+        <header class="books library-header">
+            <p>Library</p>
+        </header>
+        <main class="books library-all-books">
+            {% for book in library %}
+                <section class="books library-single-book">
+                    <p>
+                        <strong>Title: </strong>
+                        <a href="/books/{{ loop.index0 }}">{{ book.title }}</a>
+                    </p>
+                    <p>
+                        <strong>Author: </strong>
+                        {{ book.author }}
+                    </p>
+                    <p>
+                        <strong>Genre: </strong>
+                        {{ book.genre }}
+                    </p>
+                    <div>
+                        <p>
+                            <strong>Checked Out? </strong>
+                            {% if book.checked_out %}
+                                True
+                            {% else %}
+                                False
+                            {% endif %}
+                        </p>
+                        <form action="books/{{ loop.index0 }}" method="post">
+                            {% if book.checked_out %}
+                                <input type="submit" name="check_in" value="Check In">
+                            {% else %}
+                                <input type="submit" name="check_out" value="Check Out">
+                            {% endif %}
+                        </form>
+                    </div>
+                </section>
+            {% endfor %}
+        </main>
     </section>
+    
 {% endblock %}

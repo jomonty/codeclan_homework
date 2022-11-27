@@ -52,7 +52,6 @@ body > footer {
     align-items: center;
     padding-top: 10px;
     padding-bottom: 20px;
-    /* margin-bottom: 10px; */
 }
 .add-remove-header {
     text-align: center;
@@ -65,14 +64,12 @@ body > footer {
     column-gap: 80px;
 }
 .form-add-book {
-    /* border: 1px solid green; */
     display: grid;
     grid-template-areas:
         "left-upper right-upper"
         "bottom bottom";
     grid-template-columns: 1.8fr 1fr;
     grid-template-rows: 3fr 2.5rem;
-    /* border: 1px solid black; */
     border-radius: 5px;
     padding: 5px;
     background-color: #4E8399;
@@ -132,7 +129,6 @@ input[type=submit] {
 
 }
 .library-single-book {
-    /* border: 1px solid black; */
     height: 16rem;
     width: 14rem;
     display: flex;

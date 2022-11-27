@@ -8,7 +8,6 @@
         <main class="books add-remove-main">
             <div>
                 <form action="books/add" method="post" class="books form-add-book">
-                    <!-- <div class="books form-add-book-1"> -->
                     <fieldset class="books form-add-book-1">
                         <div class="books form-label-input-pair">
                             <label for="book_title">Title:</label>
@@ -23,8 +22,6 @@
                             <input type="text" id="book_genre" name="book_genre">
                         </div>
                     </fieldset>
-                    <!-- </div> -->
-                    <!-- <div class="books form-add-book-2"> -->
                     <fieldset class="books form-add-book-2">
                         <label for="book_checked_in">
                             <input type="radio" id="book_checked_in" name="book_status" value="book_checked_in" checked>
@@ -35,7 +32,6 @@
                             Checked Out
                         </label>
                     </fieldset>
-                    <!-- </div> -->
                     <div class="books form-add-book-3">
                         <input type="submit" value="Add">
                     </div>
@@ -44,7 +40,11 @@
             <div>
                 <form action="books/remove" method="post" class="books form-remove-book">
                     <label for="book_title">Book Title: </label>
-                    <input type="text" name="book_title" id="book_title">
+                    <select name="book_title" id="book_title">
+                        {% for book in library %}
+                            <option value="{{ book.title }}">{{ book.title }}</option>
+                        {% endfor %}
+                    </select>
                     <input type="submit" value="Remove">
                 </form>
             </div>

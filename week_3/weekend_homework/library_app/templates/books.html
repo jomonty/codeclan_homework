@@ -10,14 +10,18 @@
                 <form action="books/add" method="post" class="books form-add-book">
                     <!-- <div class="books form-add-book-1"> -->
                     <fieldset class="books form-add-book-1">
-                        <label for="book_title">Title
-                        <input type="text" id="book_title" name="book_title">
-                        <br>
-                        <label for="book_author">Author</label>
-                        <input type="text" id="book_author" name="book_author">
-                        <br>
-                        <label for="book_genre">Genre</label>
-                        <input type="text" id="book_genre" name="book_genre">
+                        <div class="books form-label-input-pair">
+                            <label for="book_title">Title:</label>
+                            <input type="text" id="book_title" name="book_title">
+                        </div>
+                        <div class="books form-label-input-pair">
+                            <label for="book_author">Author:</label>
+                            <input type="text" id="book_author" name="book_author">
+                        </div>
+                        <div class="books form-label-input-pair">
+                            <label for="book_genre">Genre:</label>
+                            <input type="text" id="book_genre" name="book_genre">
+                        </div>
                     </fieldset>
                     <!-- </div> -->
                     <!-- <div class="books form-add-book-2"> -->
@@ -48,7 +52,7 @@
     </section>
     <section class="books library-container">
         <header class="books library-header">
-            <p>Library</p>
+            <h2>Library</h2>
         </header>
         <main class="books library-all-books">
             {% for book in library %}
@@ -69,12 +73,12 @@
                         <p>
                             <strong>Checked Out? </strong>
                             {% if book.checked_out %}
-                                True
+                                &#9989;
                             {% else %}
-                                False
+                                &#10060;
                             {% endif %}
                         </p>
-                        <form action="books/{{ loop.index0 }}" method="post">
+                        <form action="books/{{ loop.index0 }}" method="post" style="text-align: center;">
                             {% if book.checked_out %}
                                 <input type="submit" name="check_in" value="Check In">
                             {% else %}

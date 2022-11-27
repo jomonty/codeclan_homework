@@ -7,7 +7,7 @@ body {
         'body_footer';
     grid-template-rows: 150px 1fr 200px;
     margin: 0;
-
+    font-family: 'Montserrat';
 }
 body > header {
     background-color: #A5C1CC;
@@ -29,6 +29,7 @@ body > footer {
     justify-content: space-around;
     align-content: center;
     margin: 0;
+    padding-top: 1.5rem;
 }
 
 .header-nav {
@@ -49,6 +50,9 @@ body > footer {
     display: grid;
     grid-template-rows: 60px 1fr;
     align-items: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    /* margin-bottom: 10px; */
 }
 .add-remove-header {
     text-align: center;
@@ -66,9 +70,12 @@ body > footer {
     grid-template-areas:
         "left-upper right-upper"
         "bottom bottom";
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 3fr 3rem;
-    border: 1px solid black;
+    grid-template-columns: 1.8fr 1fr;
+    grid-template-rows: 3fr 2.5rem;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #4E8399;
 }
 .form-add-book-1 {
     grid-area: left-upper;
@@ -95,6 +102,8 @@ body > footer {
     display: flex;
     flex-direction: column;
     align-content: center;
+    padding: 10px;
+    background-color: #4E8399;
 }
 input[type=submit] {
     padding:5px 15px; 
@@ -102,4 +111,51 @@ input[type=submit] {
     border:0 none;
     cursor:pointer;
     border-radius: 5px; 
+}
+.form-label-input-pair {
+    display: flex;
+    justify-content: space-between;
+}
+.library-header {
+    text-align: center;
+}
+.library-all-books {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 4rem;
+
+}
+.library-single-book {
+    /* border: 1px solid black; */
+    height: 16rem;
+    width: 14rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    row-gap: 0.0rem;
+    background-color: #CCA5AC;
+    box-shadow: 2px 2px 3px 2px #4E8399;
+    border-radius: 5px;
+}
+.library-single-book > p {
+    padding: 0;
+    margin: 0;
+}
+.single-book-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+}
+.single-book-header {
+    text-align: center;
 }

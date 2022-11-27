@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block body_main_content %}
-    <section class="single-book container">
-        <header class="single-book header">
-
+    <section class="single-book-container">
+        <header class="single-book-header">
+            <h2>Single Book Detail</h2>
         </header>
-        <main class="single-book book-card">
+        <main class="library-single-book">
             <p>
                 <strong>Title: </strong>
                 {{ book.title }}
@@ -21,9 +21,9 @@
             <p>
                 <strong>Checked Out? </strong>
                 {% if book.checked_out %}
-                    True
+                    &#9989;
                 {% else %}
-                    False
+                    &#10060;
                 {% endif %}
             </p>
             <form method="post">

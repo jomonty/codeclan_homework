@@ -157,3 +157,12 @@ input[type=submit] {
 .single-book-header {
     text-align: center;
 }
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a:visited {
+    text-decoration: none;
+}

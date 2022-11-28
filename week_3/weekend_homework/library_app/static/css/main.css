@@ -95,12 +95,13 @@ body > footer {
 
 }
 .form-remove-book {
-    border: 1px solid green;
+    /* border: 1px solid green; */
     display: flex;
     flex-direction: column;
     align-content: center;
     padding: 10px;
     background-color: #4E8399;
+    border-radius: 5px;
 }
 input[type=submit] {
     padding:5px 15px; 
@@ -143,6 +144,7 @@ input[type=submit] {
 .library-single-book > p {
     padding: 0;
     margin: 0;
+    text-align: center;
 }
 .single-book-container {
     display: flex;

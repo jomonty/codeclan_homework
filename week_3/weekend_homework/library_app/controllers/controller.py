@@ -42,16 +42,9 @@ def show_single_book(book_index):
 def update_book_status(book_index):
     form_data = request.form
     book = get_single_book_by_index(library, book_index)
-    
-    if 'single_check_in' in form_data:
-        book.check_in()
-        return redirect(f'/books/{book_index}')
-    elif 'single_check_out' in form_data:
-        book.check_out()
-        return redirect(f'/books/{book_index}')
     if 'check_in' in form_data:
         book.check_in()
-        return redirect('/books')
     elif 'check_out' in form_data:
         book.check_out()
-        return redirect('/books')
+    return redirect(request.referrer)
+

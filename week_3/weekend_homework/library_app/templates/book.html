@@ -28,9 +28,9 @@
             </p>
             <form method="post">
                 {% if book.checked_out %}
-                    <input type="submit" name="single_check_in" value="Check In">
+                    <input type="submit" name="check_in" value="Check In">
                 {% else %}
-                    <input type="submit" name="single_check_out" value="Check Out">
+                    <input type="submit" name="check_out" value="Check Out">
                 {% endif %}
             </form>
         </main>

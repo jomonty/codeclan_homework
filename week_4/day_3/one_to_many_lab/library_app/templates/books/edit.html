@@ -2,17 +2,17 @@
 
 {% block body_main %}
     <main class="container-forms">
-        <section class="edit-book-form">
-            <form action="/books/{{ book.id }}/edit" method="post">
-                <div>
+        <section class="form-section-container">
+            <form action="/books/{{ book.id }}/edit" method="post" class="edit-book-form">
+                <div class="label-input-pair">
                     <label for="title">Title: </label>
                     <input type="text" id="title" name="title" value="{{ book.title }}">
                 </div>
-                <div>
+                <div class="label-input-pair">
                     <label for="genre">Genre: </label>
                     <input type="text" id="genre" name="genre" value="{{ book.genre }}">
                 </div>
-                <div>
+                <div class="label-input-pair">
                     <label for="author">Author: </label>
                     <select id="author" name="author_id">
                         {% for author in authors %}
@@ -23,7 +23,7 @@
                         {% endfor %}
                     </select>
                 </div>
-                <div>
+                <div class="button-container">
                     <button type="submit">Save Book</button>
                 </div>
             </form>

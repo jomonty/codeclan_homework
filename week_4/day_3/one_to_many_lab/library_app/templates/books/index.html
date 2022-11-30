@@ -6,18 +6,14 @@
         {% for book in all_books %}
             <section class="container-book">
                 <div class="book-info">
-                    <p>Title: <a href="/books/{{ book.id }}">{{ book.title }}</a></p>
-                </div>
-                <div class="book-info">
-                    <p>Genre: {{ book.genre }}</p>
-                </div>
-                <div class="book-info">
-                    <p>Author: {{ book.author.name }}</p>
+                    <p class="book-info-text">Title: <a href="/books/{{ book.id }}" class="book-info-text">{{ book.title }}</a></p>
+                    <p class="book-info-text">Genre: {{ book.genre }}</p>
+                    <p class="book-info-text">Author: {{ book.author.name }}</p>
                 </div>
                 <div class="book-buttons">
-                    <button><a href="/books/{{ book.id }}/edit">Edit</a></button>
+                    <button class="button"><a href="/books/{{ book.id }}/edit">Edit</a></button>
                     <form action="/books/{{ book.id }}/delete" method="post">
-                        <button type="submit">Delete</button>
+                        <button type="submit" class="button">Delete</button>
                     </form>
                 </div>
             </section>

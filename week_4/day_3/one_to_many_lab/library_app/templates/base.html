@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <title>{% block header_title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>CodeClan Library App</h1>
+        <nav class="nav-header">
+            <div><a href="/">Home</a></div>
+            <div><a href="/books">Library</a></div>
+            <div><a href="/books/new">New Book</a></div>
+        </nav>
+    </header>
+    <main>
+        {% block body_main %}
+            
+        {% endblock %}
+    </main>
+    <footer>
+        <section>
+            <h4>Josh montgomery</h4>
+            <h5>CodeClan</h5>
+            <h5>2022</h5>
+        </section>
+        <nav class="nav-footer">
+            <div><a href="/">Home</a></div>
+            <div><a href="/books">Library</a></div>
+            <div><a href="/books/new">New Book</a></div>
+        </nav>
+    </footer>
+</body>
+</html>

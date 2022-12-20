@@ -1,0 +1,51 @@
+.App {
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+#film-release-box {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  background-color: whitesmoke;
+  border: 1px solid black
+}
+
+#film-release-box-header {
+  font-size: 0.7em;
+  text-align: left;
+  font-weight: lighter;
+}
+
+#film-release-box-footer {
+  background-color: lightblue;
+  padding: 0.75rem;
+  border: 1px solid black;
+}
+#film-release-box-footer a {
+  text-decoration: none;
+  color: royalblue;
+}
+
+#film-release-box-list {
+  /* background-color: white; */
+  border-top-width: 80%;
+  border-top: 1px solid grey;
+  border-bottom-width: 80%;
+  border-bottom: 1px solid grey;
+  margin-bottom: 0.5rem;
+}
+
+.film-release-box-single-film {
+  padding: 0.5rem;
+}
+
+.film-release-box-single-film > a {
+  text-decoration: none;
+  color: royalblue;
+}
+

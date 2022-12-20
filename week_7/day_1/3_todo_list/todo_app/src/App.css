@@ -1,0 +1,57 @@
+.App {
+  width: 80%;
+  margin: 0 Auto;
+  font-family: 'Lato', sans-serif;
+}
+.new-todo-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+input[type="text"] {
+  padding: 10px;
+  width: 50%;
+  margin: 5px 5px 5px 0;
+}
+button, input[type="submit"]{
+  padding: 10px;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid #000;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+li {
+  margin: 20px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+li span {
+  padding: 8px;
+}
+li button {
+  background: lightseagreen;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+li.priority-low {
+  border: 2px solid #1a681e;
+  color: #1a681e;
+}
+li.priority-high {
+  border: 2px solid red;
+  color: red;
+}
+li.complete {
+  border: 2px solid grey;
+  color: grey;
+}
+

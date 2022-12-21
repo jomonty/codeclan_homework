@@ -3,7 +3,7 @@ import React from 'react';
 const FilmReleasesHeader = () => {
     return (
         <div id="film-release-box-header">
-        <h1>Upcoming Film Releases for the UK</h1>
+        <h2>Upcoming Film Releases for the UK</h2>
         </div>
     )
 }

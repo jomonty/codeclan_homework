@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+#chart-container {
+  background-color: white;
+}
+#chart-container-header {
+  background-color: white;
+}
+#chart-container-footer {
+  background-color: white;
+}
+#chart-list {
+  background-color: white;
+}
+.chart-list-item {
+  background-color: white;
+}

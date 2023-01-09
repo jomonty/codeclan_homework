@@ -26,6 +26,7 @@ const PokedexMain = () => {
                 entry.name = entry.name[0].toUpperCase() + entry.name.substring(1);
                 entry["str_id"] = "#" + ("000" + entry.id).slice(-4);
                 entry["img_url"] = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${entry.id}.png`
+                console.log(entry)
                 return entry
             }))
             .then(array => {

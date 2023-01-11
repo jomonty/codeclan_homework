@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import styled from 'styled-components';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import NewsList from './components/NewsList';
 
 function App() {
+
+  const App = styled.div`
+    text-align: center;
+    background-color: red;
+  `
 
   const [ newsItems, setNewsItems ] = useState(null);
   const [ newsItemsDetail, setNewsItemsDetail ] = useState([]);
@@ -45,11 +51,11 @@ function App() {
   },[searchTerm, newsItemsDetail])
    
   return (
-    <div className="App">
+    <App>
       <Header />
       <SearchBar searchTerm={searchTerm} handleSearchTermUpdate={handleSearchTermUpdate}/>
       <NewsList newsToRender={ newsToRender }/>
-    </div>
+    </App>
   ); 
 }
 

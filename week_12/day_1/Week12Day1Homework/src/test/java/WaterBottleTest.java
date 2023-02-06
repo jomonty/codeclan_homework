@@ -1,6 +1,6 @@
 import org.junit.Test;
 import org.junit.Before;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import org.codeclan.homework.WaterBottle;
 
 public class WaterBottleTest {

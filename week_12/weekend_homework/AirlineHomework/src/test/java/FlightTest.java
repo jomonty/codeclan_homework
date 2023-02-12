@@ -1,44 +1,55 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
 public class FlightTest {
     private Flight flight;
-    private List<Pilot> ArrayList;
-    private List<Pilot> flightCrew = new ArrayList<>();
-    private List<CabinCrewMember> cabinCrew = new ArrayList<>();
-    private List<Passenger> passengers = new ArrayList<>();
     @Before
     public void setup() {
-        flightCrew.add(new Pilot("IceMan", CrewRank.CAPTAIN, "123456"));
-        flightCrew.add(new Pilot("Goose", CrewRank.FIRST_OFFICER, "987654"));
-        for (int i=0; i<3; i++) {
-            cabinCrew.add(new CabinCrewMember(String.format("Crew Member %s", i), CrewRank.FLIGHT_ATTENDANT));
-        }
-        for (int i=0; i<150; i++) {
-            passengers.add(new Passenger(String.format("Passenger %s", i), 2));
-        }
-        flight = new Flight(flightCrew,
-                cabinCrew,
-                passengers,
-                new Plane(PlaneType.AIRBUSA300),
-                "ABC123",
+        flight = FlightManager.generateFlight("ABC123",
+                PlaneType.AIRBUSA300,
+                3,
+                150,
                 "LHR",
                 "GLA",
-                "2023-02-13 18:00:00");
+                LocalDate.of(2023, Month.FEBRUARY, 13));
+    }
+    @Test
+    public void isFlight() {
+        assertEquals(2, flight.getFlightCrew().size());
+        assertEquals(3, flight.getCabinCrew().size());
+        assertEquals("LHR", flight.getDestination());
+        assertEquals("GLA", flight.getOrigin());
+        assertEquals("ABC123", flight.getFlightNumber());
+        assertEquals(LocalDate.of(2023, Month.FEBRUARY, 13), flight.getDepartureDate());
     }
     @Test
     public void getGetAvailableSeats() {
         assertEquals(100, flight.getAvailableSeats());
     }
     @Test
+    public void hasCorrectlyBookedPassengers() {
+        List<Passenger> bookedPassengers = flight.getPassengers();
+        assertEquals("ABC123", bookedPassengers.get(0).getFlightNumber());
+        assertEquals("ABC123", bookedPassengers.get(49).getFlightNumber());
+        assertEquals("ABC123", bookedPassengers.get(99).getFlightNumber());
+    }
+    @Test
     public void canBookPassengerHasCapacity() {
-        flight.bookPassenger(new Passenger("Passenger 151", 2));
+        Passenger newPassenger = new Passenger("Passenger 151", 2);
+        flight.bookPassenger(newPassenger);
         assertEquals(99, flight.getAvailableSeats());
+        assertEquals("ABC123", newPassenger.getFlightNumber());
+    }
+    @Test
+    public void canGetTotalBookedPassengers() {
+        assertEquals(150, flight.getBookedPassengerTotal());
     }
     @Test
     public void cannotBookPassengerWhenNoCapacity() {
@@ -48,5 +59,15 @@ public class FlightTest {
         assertEquals(0, flight.getAvailableSeats());
         flight.bookPassenger(new Passenger("Late Passenger", 2));
         assertEquals(0, flight.getAvailableSeats());
+    }
+    @Test
+    public void bookedPassengerHasSeatNumber() {
+        List<Passenger> passengers = flight.getPassengers();
+        Plane plane = flight.getPlane();
+        for (Passenger passenger : passengers) {
+            Assert.assertTrue(passenger.getSeatNumber() >= 0
+                                &&
+                                passenger.getSeatNumber() <= plane.getPlaneCapacity());
+        }
     }
 }

@@ -1,6 +1,8 @@
 public class Passenger extends Person {
     // Initialisation
     private int numberOfBags;
+    private String flightNumber;
+    private int seatNumber;
     public Passenger(String name, int numberOfBags) {
         super(name);
         this.numberOfBags = numberOfBags;
@@ -11,5 +13,17 @@ public class Passenger extends Person {
     }
     public void setNumberOfBags(int numberOfBags) {
         this.numberOfBags = numberOfBags;
+    }
+    public String getFlightNumber() {
+        return this.flightNumber;
+    }
+    public void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
+    }
+    public int getSeatNumber() {
+        return this.seatNumber;
+    }
+    public void setSeatNumber(int seatNumber) {
+        this.seatNumber = seatNumber;
     }
 }

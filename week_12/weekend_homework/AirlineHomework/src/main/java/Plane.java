@@ -1,6 +1,6 @@
 public class Plane {
     // Initialisation
-    private PlaneType planeType;
+    private final PlaneType planeType;
     public Plane(PlaneType planeType) {
         this.planeType = planeType;
     }

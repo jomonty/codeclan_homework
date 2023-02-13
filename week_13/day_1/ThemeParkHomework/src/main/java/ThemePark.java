@@ -15,7 +15,7 @@ public class ThemePark {
         this.stalls = stalls;
     }
     // Getters and setters
-
+    
     // Methods
     public ArrayList<IReviewed> getAllReviewed() {
         ArrayList<IReviewed> reviewed = new ArrayList<>();

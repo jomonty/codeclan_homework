@@ -1,3 +1,8 @@
+package people.crew;
+
+import people.Person;
+import people.crew.CrewRank;
+
 public class Pilot extends Person {
     // Initialisation
     private CrewRank crewRank;

@@ -1,4 +1,6 @@
-enum PlaneType {
+package flights.plane;
+
+public enum PlaneType {
     BOEING747("Boeing 747", 300, 20000),
     BOEING737("Boeing 737", 150, 10000),
     AIRBUSA300("Airbus A300", 250, 15000);

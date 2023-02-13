@@ -1,3 +1,7 @@
+package people.passenger;
+
+import people.Person;
+
 public class Passenger extends Person {
     // Initialisation
     private int numberOfBags;

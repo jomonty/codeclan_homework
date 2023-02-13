@@ -1,3 +1,5 @@
+package people;
+
 public abstract class Person {
     // Initialisation
     private String name;

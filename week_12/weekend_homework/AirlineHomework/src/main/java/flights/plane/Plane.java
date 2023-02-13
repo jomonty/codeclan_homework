@@ -1,3 +1,6 @@
+package flights.plane;
+import flights.plane.PlaneType;
+
 public class Plane {
     // Initialisation
     private final PlaneType planeType;

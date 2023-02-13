@@ -1,6 +1,11 @@
+import flights.Flight;
+import flights.FlightManager;
+import flights.plane.Plane;
+import flights.plane.PlaneType;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import people.passenger.Passenger;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -42,7 +47,7 @@ public class FlightTest {
     }
     @Test
     public void canBookPassengerHasCapacity() {
-        Passenger newPassenger = new Passenger("Passenger 151", 2);
+        Passenger newPassenger = new Passenger("people.passenger.Passenger 151", 2);
         flight.bookPassenger(newPassenger);
         assertEquals(99, flight.getAvailableSeats());
         assertEquals("ABC123", newPassenger.getFlightNumber());
@@ -54,10 +59,10 @@ public class FlightTest {
     @Test
     public void cannotBookPassengerWhenNoCapacity() {
         for (int i=0; i<100; i++) {
-            flight.bookPassenger(new Passenger(String.format("Passenger %s", i), 2));
+            flight.bookPassenger(new Passenger(String.format("people.passenger.Passenger %s", i), 2));
         }
         assertEquals(0, flight.getAvailableSeats());
-        flight.bookPassenger(new Passenger("Late Passenger", 2));
+        flight.bookPassenger(new Passenger("Late people.passenger.Passenger", 2));
         assertEquals(0, flight.getAvailableSeats());
     }
     @Test

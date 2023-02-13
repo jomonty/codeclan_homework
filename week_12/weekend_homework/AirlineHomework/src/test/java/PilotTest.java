@@ -1,5 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
+import people.crew.CrewRank;
+import people.crew.Pilot;
 
 import static org.junit.Assert.assertEquals;
 

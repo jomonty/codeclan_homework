@@ -1,3 +1,5 @@
+import flights.plane.Plane;
+import flights.plane.PlaneType;
 import org.junit.Before;
 import org.junit.Test;
 

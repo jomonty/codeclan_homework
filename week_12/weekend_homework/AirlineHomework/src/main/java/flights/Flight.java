@@ -1,3 +1,10 @@
+package flights;
+
+import flights.plane.Plane;
+import people.crew.CabinCrewMember;
+import people.passenger.Passenger;
+import people.crew.Pilot;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;

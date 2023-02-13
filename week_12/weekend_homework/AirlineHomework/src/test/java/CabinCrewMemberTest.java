@@ -1,5 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
+import people.crew.CabinCrewMember;
+import people.crew.CrewRank;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,7 +15,7 @@ public class CabinCrewMemberTest {
     public void canGet() {
         assertEquals("Fred", cabinCrew.getName());
         assertEquals(CrewRank.FLIGHT_ATTENDANT, cabinCrew.getCrewRank());
-        assertEquals("Flight Attendant", cabinCrew.getCrewRankValue());
+        assertEquals("flights.Flight Attendant", cabinCrew.getCrewRankValue());
     }
     @Test
     public void canSet() {

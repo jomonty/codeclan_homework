@@ -1,3 +1,12 @@
+package flights;
+
+import flights.plane.Plane;
+import flights.plane.PlaneType;
+import people.crew.CabinCrewMember;
+import people.crew.CrewRank;
+import people.passenger.Passenger;
+import people.crew.Pilot;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,9 +51,9 @@ public class FlightManager {
         }
         // Add passengers
         for (int i=0; i<numberOfPassengers; i++) {
-            passengers.add(new Passenger(String.format("Passenger %s", i), 2));
+            passengers.add(new Passenger(String.format("people.passenger.Passenger %s", i), 2));
         }
-        // Initialise Flight
+        // Initialise flights.Flight
         Flight flight = new Flight(flightCrew,
                 cabinCrew,
                 new Plane(planeType),

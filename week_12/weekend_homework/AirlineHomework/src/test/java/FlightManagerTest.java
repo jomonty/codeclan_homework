@@ -1,3 +1,6 @@
+import flights.Flight;
+import flights.FlightManager;
+import flights.plane.PlaneType;
 import org.junit.Before;
 import org.junit.Test;
 

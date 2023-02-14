@@ -31,16 +31,14 @@ public class ThemePark {
     }
     public HashMap<String, Integer> getAllRatings() {
         HashMap<String, Integer> output = new HashMap<>();
-        ArrayList<IReviewed> reviewed = getAllReviewed();
-        for (IReviewed e : reviewed) {
+        for (IReviewed e : getAllReviewed()) {
             output.put(e.getName(), e.getRating());
         }
         return output;
     }
     public ArrayList<IReviewed> getAllowedIReviewed(Visitor visitor) {
-        ArrayList<IReviewed> all = getAllReviewed();
         ArrayList<IReviewed> output = new ArrayList<>();
-        for (IReviewed e : all) {
+        for (IReviewed e : getAllReviewed()) {
             if (e instanceof ISecurity ) {
                 if (((ISecurity) e).isAllowedTo(visitor)) {
                     output.add(e);

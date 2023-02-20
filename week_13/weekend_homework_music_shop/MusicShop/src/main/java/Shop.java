@@ -2,7 +2,6 @@ import behaviours.ISell;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BinaryOperator;
 
 public class Shop {
     // Initialisation

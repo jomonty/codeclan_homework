@@ -5,13 +5,13 @@ import org.codeclan.homework.FilesAndFolders.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-public class PersonContoller {
+public class PersonController {
     @Autowired
     PersonRepository personRepo;
 
@@ -20,6 +20,23 @@ public class PersonContoller {
         return new ResponseEntity<>(
                 personRepo.findAll(),
                 HttpStatus.OK
+        );
+    }
+
+    @GetMapping(value = "/persons/{id}")
+    public ResponseEntity<Optional<Person>> getOnePerson(@PathVariable Long id) {
+        return new ResponseEntity<>(
+                personRepo.findById(id),
+                HttpStatus.OK
+        );
+    }
+
+    @PostMapping(value = "/persons")
+    public ResponseEntity<Person> createOnePerson(@RequestBody Person person) {
+        personRepo.save(person);
+        return new ResponseEntity<>(
+                person,
+                HttpStatus.CREATED
         );
     }
 }

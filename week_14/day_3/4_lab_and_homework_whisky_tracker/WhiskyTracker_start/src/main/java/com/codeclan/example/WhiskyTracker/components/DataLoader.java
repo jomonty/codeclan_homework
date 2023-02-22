@@ -11,7 +11,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-@Profile("!test") //Run every time EXCEPT Tests
+//@Profile("!test") //Run every time EXCEPT Tests
 @Component
 public class DataLoader implements ApplicationRunner {
 
@@ -26,6 +26,9 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args) {
+        distilleryRepository.deleteAll();
+        whiskyRepository.deleteAll();
+
         Distillery distillery1 = new Distillery("Glendronach", "Highland");
         distilleryRepository.save(distillery1);
 

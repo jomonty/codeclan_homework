@@ -22,21 +22,34 @@ public class WhiskyController {
     public ResponseEntity<List<Whisky>> getWhiskies(
             @RequestParam Map<String, String> allParams
             ) {
-        List<Whisky> whiskies = new ArrayList<>();
-        if (allParams.size() == 0) {
-            whiskies = whiskyRepo.findAll();
-        } else if (allParams.size() == 1 && allParams.containsKey("year")) {
-            whiskies = whiskyRepo.findByYearEquals(Integer.parseInt(allParams.get("year")));
-        } else if (allParams.size() == 1 && allParams.containsKey("distilleryRegion")) {
-            whiskies = whiskyRepo.findByDistilleryRegion(allParams.get("distilleryRegion"));
-        } else if (allParams.size() == 2 && allParams.containsKey("distilleryName") && allParams.containsKey("age")) {
-            whiskies = whiskyRepo.findByAgeAndDistilleryName(
-                    Integer.parseInt(allParams.get("age")),
-                    allParams.get("distilleryName")
+
+        // If the query params are only year
+        if (allParams.size() == 1 && allParams.containsKey("year")) {
+            return new ResponseEntity<>(
+                    whiskyRepo.findByYearEquals(Integer.parseInt(allParams.get("year"))),
+                    HttpStatus.OK
             );
         }
+        // If the query params are only Distillery Region
+        if (allParams.size() == 1 && allParams.containsKey("distilleryRegion")) {
+            return new ResponseEntity<>(
+                    whiskyRepo.findByDistilleryRegion(allParams.get("distilleryRegion")),
+                    HttpStatus.OK
+            );
+        }
+        // If the query params are distillery name and age
+        if (allParams.size() == 2 && allParams.containsKey("distilleryName") && allParams.containsKey("age")) {
+            return new ResponseEntity<>(
+                    whiskyRepo.findByAgeAndDistilleryName(
+                            Integer.parseInt(allParams.get("age")),
+                            allParams.get("distilleryName")
+                    ),
+                    HttpStatus.OK
+            );
+        }
+        // If we have no query params, return all results
         return new ResponseEntity<>(
-                whiskies,
+                whiskyRepo.findAll(),
                 HttpStatus.OK
         );
     }
